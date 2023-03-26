@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { Container } from "./styles/Share";
+import { GlobalCSS } from "./styles/GlobalCss";
+import Home from "./spa/Home";
+import Login from "./spa/Login";
+import LoginContextProvider from "./spa/loginContextApi";
+import RouteGuard from "./spa/RouteGuard";
+export default function App() {
+  const theme = {
+    colors: "aliceblue",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <GlobalCSS></GlobalCSS>
+        <LoginContextProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={
+                <RouteGuard>
+                  <Home />
+                </RouteGuard>
+              } />
+            </Routes>
+          </Router>
+        </LoginContextProvider>
+      </Container>
+    </ThemeProvider>
   );
 }
-
-export default App;

@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "hello one",
+      "desc": "hello desc",
+      "id": 2
+    },
+    {
+      "title": "hello one",
+      "desc": "hello desc",
+      "id": 3
+    },
+    {
+      "title": "hello one",
+      "desc": "hello desc",
+      "id": 4
+    },
+    {
+      "title": "hello one",
+      "desc": "hello desc",
+      "id": 5
+    },
+    {
+      "title": "hello one",
+      "desc": "hello desc",
+      "id": 6
+    },
+    {
+      "title": "hello one",
+      "desc": "hello desc",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
