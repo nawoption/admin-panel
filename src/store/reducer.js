@@ -1,9 +1,16 @@
 import { combineReducers } from "redux";
-import accountReducer from "./reducers/accountReducer";
-import userReducer from "./reducers/userReducer";
+const loginAction = (state = false, action) => {
+  switch (action.type) {
+    case "login":
+      return (state = action.payload);
+    case "logout":
+      return (state = action.payload);
+    default:
+      return state;
+  }
+};
 
-const reducers = combineReducers({
-  account: accountReducer,
-  user: userReducer,
+const reducer = combineReducers({
+  loginedIn: loginAction,
 });
-export default reducers;
+export default reducer
