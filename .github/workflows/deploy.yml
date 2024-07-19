@@ -52,4 +52,4 @@ jobs:
           docker container prune -f
 
       - name: Run Docker container
-        run: docker run -d -p 80:5000 --name react-app-container ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+        run: docker run -d -p 5000:5000 --name react-app-container ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
