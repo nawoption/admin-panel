@@ -1,27 +1,29 @@
-# Use the official Node.js image.
-# https://hub.docker.com/_/node
+# Use the official Node.js image
 FROM node:14-alpine AS build
 
-# Create and change to the app directory.
+# Create and change to the app directory
 WORKDIR /usr/src/app
 
-# Copy the package.json and package-lock.json.
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies.
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code.
+# Copy the rest of the application code
 COPY . .
 
-# Build the app.
+# Build the app
 RUN npm run build
 
-# Install `serve` to serve the app.
+# Install `serve` to serve the app
 RUN npm install -g serve
 
-# Set the command to serve the app.
-CMD ["serve", "-s", "build"]
+# Set environment variable for port
+ENV PORT=5000
 
-# Expose the port the app runs on.
+# Serve the app on the specified port
+CMD ["serve", "-s", "build", "-l", "5000"]
+
+# Expose the port the app runs on
 EXPOSE 5000
