@@ -1,0 +1,17 @@
+.para {
+  line-height: 40px;
+}
+.loadingBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-100px,-75px);
+  z-index: 1000;
+}
+.loadingBox > img {
+  width: 200px;
+  height: 150px;
+}
+.adminBox{
+  max-height: 500px;
+}
